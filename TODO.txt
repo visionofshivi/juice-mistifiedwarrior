@@ -1,0 +1,42 @@
+data store :
+  [
+    {"--id": 1, "--beverage": "Orange", "--qty":1, "--date":2020-04-28T15:58:27.606Z},
+    {"--id": 2, "--beverage": "Mango", "--qty":1, "--date":2020-04-28T15:58:27.606Z}
+  ]
+
+program flow:
+
+  Input from cmd:
+    node beverage.js --save --beverage orange --qty 1 --id 1111
+
+  program input:(process.argv)
+    ['node', 'beverage.js', '--save', '--beverage', 'orange', '--qty', '1', '--id', '1111']
+
+  destructors action and data from program input(process.argv)  
+    action = '--save';
+    data = ['--beverage', 'orange', '--qty', '1', '--id', '1111'];
+
+  convert data into objects
+    studentTransaction = {'--beverage':'orange', "--qty":'1', "--id":'1111'}
+    studentTransaction["--date"] = new Date();
+    studentTransaction = {'--beverage':'orange', "--qty":'1', "--id":'1111',"--date": 2019-11-20T05:50:28.267Z
+'}
+  
+  transaction records 
+    previousRecords = read
+  
+    previousRecords in array => array of objects [{},{}]
+    data will be pushed in previous records.
+      updatedRecords = [{},{},{'--beverage':'orange', "--qty":'1', "--id":'1111', "--date":2019-11-20T05:50:28.267Z
+}]
+
+  data write into record file
+    in file: [{},{}]
+    fs.writeFileSync(fileName, updatedRecords, 'utf8')
+    in file: [{}, {}, {'--beverage':'orange', "--qty":'1', "--id":'1111',"--date":2019-11-20T05:50:28.267Z}]
+
+  showOutput:
+    `Transaction Recorded:
+    Student ID,Beverage,Quantity,Date
+    1111,orange,1,2019-11-20T05:50:28.267Z`
+

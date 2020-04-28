@@ -1,0 +1,24 @@
+{
+  "name": "juice-mistifiedwarrior",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visionofshivi/juice-mistifiedwarrior.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/visionofshivi/juice-mistifiedwarrior/issues"
+  },
+  "homepage": "https://github.com/visionofshivi/juice-mistifiedwarrior#readme",
+  "devDependencies": {
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1"
+  }
+}
