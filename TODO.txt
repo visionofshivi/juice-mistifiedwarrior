@@ -5,7 +5,7 @@ data store :
   ]
 
 program flow:
-
+-------------
   Input from cmd:
     node beverage.js --save --beverage orange --qty 1 --id 1111
 
@@ -40,3 +40,55 @@ program flow:
     Student ID,Beverage,Quantity,Date
     1111,orange,1,2019-11-20T05:50:28.267Z`
 
+
+
+
+----------------------for query ---------------------
+we have allRecords;
+
+program flow:
+
+  Input from cmd :
+    node beverage.js --query --id 1111
+
+  program Input: (process.argv)
+    ['node' ,'beverage.js ','--query ','--id ','1111']
+
+  destructors action and data from program input(process.argv):
+    action = '--query';
+    data = ['--id', '1111'];
+
+  convert into objects:
+    filterBy = {'--id': '1111'};
+  
+  filter the allRecords by filterBy.
+    output = [{
+                "--beverage": "mango",
+                "--qty": "1",
+                "--id": "1121",
+                "--date": "2020-04-28T18:05:25.979Z"
+              },
+              {
+                "--beverage": "mango",
+                "--qty": "1",
+                "--id": "1121",
+                "--date": "2020-04-28T18:05:51.009Z"
+              }];
+
+
+  calculate total juices:
+    run a for loop and sum of --qty value
+      Total: 2 
+
+    total = total + +txn[0]["--qty"]
+
+  display result
+    `Student ID ,beverage,Quantity, Date
+    1121,mango,1,2020-04-28T18:05:25.979Z
+    1121 mango,1,2020-04-28T18:05:25.979Z
+    Total: 2 Juices
+     `
+  find index of the given id
+  filter that id and stored the data of that id in another array
+  return the length of array = total transactions.
+  return that array 
