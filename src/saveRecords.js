@@ -26,9 +26,7 @@ const writeRecords = (data) => {
 };
 
 const showOutput = (response, lastTxn) => {
-  return `${response}
-  Student ID,Beverage,Quantity,Date
-  ${lastTxn['--id']},${lastTxn['--beverage']},${lastTxn['--qty']},${lastTxn['--date']}`;
+  return `${response}\nStudent ID,Beverage,Quantity,Date\n${lastTxn['--id']},${lastTxn['--beverage']},${lastTxn['--qty']},${lastTxn['--date']}`;
 };
 
 module.exports = {

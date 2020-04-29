@@ -12,21 +12,19 @@ const performSaveTxn = function (data, allRecords) {
   studentTxn['--date'] = new Date();
   upDateRecords(allRecords, studentTxn);
   const response = writeRecords(allRecords);
-  const display = showOutput(response, studentTxn);
-  console.log(display);
+  return showOutput(response, studentTxn);
 };
 
 const performQuery = function (data, allRecords) {
   const filterBy = converter(data);
   const filtered = filter(allRecords, filterBy);
-  const show = display(filtered);
-  console.log(show);
+  return display(filtered);
 };
 
-const preformTxn = function (action, data, allRecords) {
+const performTxn = function (action, data, allRecords) {
   const actions = {'--save': performSaveTxn, '--query': performQuery};
   const performAction = actions[action];
-  performAction(data, allRecords);
+  return performAction(data, allRecords);
 };
 
-module.exports = {preformTxn};
+module.exports = {performTxn};
