@@ -22,7 +22,10 @@ const performQuery = function (data, allRecords) {
 };
 
 const performTxn = function (action, data, allRecords) {
-  const actions = {'--save': performSaveTxn, '--query': performQuery};
+  const actions = {
+    '--save': performSaveTxn,
+    '--query': performQuery,
+  };
   const performAction = actions[action];
   return performAction(data, allRecords);
 };

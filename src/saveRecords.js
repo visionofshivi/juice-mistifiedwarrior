@@ -16,7 +16,7 @@ const loadPreviousData = () => {
 };
 
 const upDateRecords = (allRecords, studentTransaction) => {
-  allRecords.push(studentTransaction);
+  return allRecords.push(studentTransaction);
 };
 
 const writeRecords = (data) => {
