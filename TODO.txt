@@ -91,4 +91,16 @@ program flow:
   find index of the given id
   filter that id and stored the data of that id in another array
   return the length of array = total transactions.
-  return that array 
+  return that array  
+
+
+
+-----------------
+topics today learned:
+
+map
+filter
+reduce
+closer
+ANDing ORing to remove if and else respectively
+objects.keys && objects.values 

@@ -1,19 +1,27 @@
 const filter = (allRecords, filterBy) => {
-  const result = [];
-  allRecords.forEach((record) => {
-    if (record['--id'] == filterBy['--id']) {
-      result.push(record);
+  const keys = Object.keys(filterBy);
+  keys.forEach((key) => {
+    if (key != '--date') {
+      allRecords = allRecords.filter((record) => record[key] == filterBy[key]);
     }
   });
-  return result;
+  if (keys.includes('--date')) {
+    allRecords = allRecords.filter(
+      (record) => record['--date'].split('T')[0] == filterBy['--date']
+    );
+  }
+  return allRecords;
+  // const filterRecords = (record) => record['--id'] == filterBy['--id'];
+  // return allRecords.filter(filterRecords);
 };
 
 const countJuices = (juiceRecords) => {
-  let totalJuices = 0;
-  juiceRecords.forEach((record) => {
-    totalJuices += +record['--qty'];
-  });
-  return totalJuices;
+  const sum = (totalJuices, record) => totalJuices + +record['--qty'];
+  const result = juiceRecords.reduce(sum, 0);
+  if (result == 1) {
+    return '1 Juice';
+  }
+  return result + 'Juices';
 };
 
 const display = (records) => {
@@ -22,7 +30,7 @@ const display = (records) => {
   records.forEach((record) => {
     result += `${record['--id']},${record['--beverage']},${record['--qty']},${record['--date']}\n`;
   });
-  return `Student ID, Beverage, Quantity, Date\n${result}Total: ${totalJuices} Juices`;
+  return `Student ID, Beverage, Quantity, Date\n${result}Total: ${totalJuices}`;
 };
 
 module.exports = {filter, display};
