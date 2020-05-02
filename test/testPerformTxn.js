@@ -29,7 +29,7 @@ describe('PerformTxn', () => {
         },
       ];
       const actual = performTxn('--query', data, allRecords);
-      const expected = `Student ID, Beverage, Quantity, Date\n1111,mango,1,2020-04-28T18:05:25.979Z\nTotal: 1 Juices`;
+      const expected = `Student ID, Beverage, Quantity, Date\n1111,mango,1,2020-04-28T18:05:25.979Z\nTotal: 1 Juice`;
       assert.deepStrictEqual(actual, expected);
 
       fs.writeFileSync = writeFileSync;
