@@ -21,7 +21,7 @@ const countJuices = (juiceRecords) => {
   if (result == 1) {
     return '1 Juice';
   }
-  return result + 'Juices';
+  return `${result} Juices`;
 };
 
 const display = (records) => {
